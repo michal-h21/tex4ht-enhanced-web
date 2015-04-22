@@ -1,0 +1,4 @@
+
+\let\oldtableofcontents\tableofcontents
+\renewcommand\tableofcontents{\@ifstar\oldtableofcontents\oldtableofcontents}
+\renewcommand\@memb@bchap{\chapter*{\bibname }\bibmark\prebibhook}
