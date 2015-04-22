@@ -1,0 +1,17 @@
+local mkutils = require "mkutils"
+local outdir = "/var/www/html/reyman/"
+-- local outdir = "~/texexamples/blog/michal-h21.github.com/reyman/"
+if mode == "draft" then
+  Make:htlatex {}
+else
+  Make:add("bibtex", "bibtex ${input}")
+  Make:htlatex {}
+  Make:bibtex {}
+  Make:htlatex {}
+  Make:htlatex {}
+end
+Make:match(".*$", function(file, par)
+  mkutils.copy(file, outdir .. file)
+  return false, "Copy html to destination "..outdir
+end)
+
