@@ -1,7 +1,10 @@
 local mkutils = require "mkutils"
 local outdir = "/var/www/html/reyman/"
--- local outdir = "~/texexamples/blog/michal-h21.github.com/reyman/"
-if mode == "draft" then
+if mode == "publish" then
+  -- outdir = "~/texexamples/tex4ht/michal-h21.github.com/reyman/"
+  outdir = "~/texexamples/blog/michal-h21.github.com/reyman/"
+end
+if mode == "draft" or mode == "publish" then
   Make:htlatex {}
 else
   Make:add("bibtex", "bibtex ${input}")
