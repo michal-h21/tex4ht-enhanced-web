@@ -114,6 +114,48 @@ May 2013
 
 \clearpage
 
+\chapter{Introduction}
+
+
+This code was created for answer to
+\href{http://tex.stackexchange.com/q/237566/2891}{this question on
+  TeX.sx}. It shows how to use Mathjax for math rendering, Hypothes.is for
+annotating, and custom Javascript libraries for navigational sidebar and
+pop-up windows with bibliographic references.
+\href{https://github.com/viljamis/Scale}{Scale.css} by Viljami Salminen
+is used for responsive web typography.
+
+You can see the result on my
+\href{http://michal-h21.github.io/reyman/thesis.html}{Github pages}.
+Please note that this is basically a proof of concept, so don't expect
+perfect design nor functionality. In particular, the sidebar needs some
+polishing, the local TOC can be collapsed and opened with some CSS
+animation, it also needs adaption to responsive design, in order to
+support small screens. Bibliography pop-up is placed on a fixed
+position, it should be more flexible. Fixes for these issues are highly
+welcome.
+
+\section{How to compile}\label{how-to-compile}
+
+You may use \href{https://github.com/michal-h21/make4ht}{make4ht}, build
+system for \texttt{tex4ht}. Because browsers doesn't support loading of
+local web pages with Javascript, you need to place the generated files
+on web server. Local server suffices. On Linux, documents are usually
+placed in \texttt{/var/www/html/}. This location is predefined in the
+build file, \texttt{thesis.mk4}. If you use a different path, modify the
+\texttt{outdir} variable.
+
+Compile with
+
+\begin{verbatim}
+   make4ht -u -c enhanced.cfg thesis.tex
+\end{verbatim}
+
+ if you haven't modify the \texttt{outdir} variable and everything works
+ well, you may open \href{http://localhost/reyman/thesis.html}{the
+   generated page}
+
+
 %%%---%%%---%%%---%%%---%%%---%%%---%%%---%%%---%%%---%%%---%%%---%%%---%%%
 %%%---%%%---%%%---%%%---%%%---%%%---%%%---%%%---%%%---%%%---%%%---%%%---%%%
 \chapter{Math examples}
